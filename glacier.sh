@@ -92,8 +92,14 @@ get_custom_port
 # Create config.yaml
 echo -e "\n${YELLOW}Creating config.yaml...${NC}"
 cat > config.yaml << EOF
-Listen: "127.0.0.1:${CUSTOM_PORT}"
-PrivateKey: "${PRIVATE_KEY}"
+Http:
+  Listen: "127.0.0.1:${CUSTOM_PORT}"
+Network: "testnet"
+RemoteBootstrap: "https://glacier-labs.github.io/node-bootstrap/"
+Keystore:
+  PrivateKey: "${PRIVATE_KEY}"
+TEE:
+  IpfsURL: "https://greenfield.onebitdev.com/ipfs/"
 EOF
 check_status
 
